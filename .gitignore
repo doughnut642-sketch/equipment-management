@@ -22,3 +22,9 @@ desktop.ini
 *.db
 *.sqlite
 *.sqlite3
+
+# SQLite database files
+*.db
+*.db-journal
+*.db-wal
+*.db-shm
