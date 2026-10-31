@@ -1,0 +1,58 @@
+
+/* =====================================
+   共通設定
+===================================== */
+
+/* すべての要素のサイズ計算を統一 */
+* {
+    box-sizing: border-box;
+}
+
+/* 基本設定 */
+html,
+body {
+    margin: 0;
+    padding: 0;
+    min-height: 100%;
+}
+
+body {
+    font-family:
+        "Yu Gothic",
+        "Meiryo",
+        sans-serif;
+
+    background: #f4f6f9;
+    color: #333333;
+
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+/* 見出し */
+h1,
+h2,
+h3,
+p {
+    margin-top: 0;
+}
+
+/* 入力フォーム */
+input,
+button,
+select,
+textarea {
+    font-family: inherit;
+    font-size: inherit;
+}
+
+/* ボタン */
+button {
+    cursor: pointer;
+}
+
+/* リンク */
+a {
+    color: inherit;
+    text-decoration: none;
+}

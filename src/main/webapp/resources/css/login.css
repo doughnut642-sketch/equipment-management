@@ -1,0 +1,176 @@
+
+/* =====================================
+   ログイン画面
+===================================== */
+
+/* 画面全体 */
+.login-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    min-height: 100vh;
+    padding: 30px 20px;
+}
+
+/* ログインカード */
+.login-card {
+    width: 100%;
+    max-width: 430px;
+
+    background: #ffffff;
+
+    border: 1px solid #e5e7eb;
+    border-radius: 12px;
+
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+
+    overflow: hidden;
+}
+
+/* ヘッダー */
+.login-header {
+    padding: 35px 30px 25px;
+    text-align: center;
+
+    border-bottom: 1px solid #edf0f3;
+}
+
+.login-header h1 {
+    margin-bottom: 8px;
+
+    font-size: 21px;
+    font-weight: 700;
+
+    color: #334155;
+}
+
+.login-header p {
+    margin-bottom: 0;
+
+    font-size: 13px;
+    color: #777777;
+}
+
+/* ログインフォームエリア */
+.login-content {
+    padding: 30px;
+}
+
+.login-content h2 {
+    margin-bottom: 25px;
+
+    font-size: 20px;
+    font-weight: 600;
+
+    text-align: center;
+    color: #333333;
+}
+
+/* 入力項目 */
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+
+    margin-bottom: 8px;
+
+    font-size: 13px;
+    font-weight: 600;
+
+    color: #555555;
+}
+
+/* 入力欄 */
+.form-group input {
+    width: 100%;
+    height: 44px;
+
+    padding: 0 12px;
+
+    border: 1px solid #d1d5db;
+    border-radius: 6px;
+
+    background: #ffffff;
+
+    outline: none;
+
+    transition: border-color 0.2s,
+                box-shadow 0.2s;
+}
+
+/* 入力欄フォーカス */
+.form-group input:focus {
+    border-color: #2563eb;
+
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.12);
+}
+
+/* プレースホルダー */
+.form-group input::placeholder {
+    color: #b0b7c3;
+    font-size: 12px;
+}
+
+/* ログインボタン */
+.login-button {
+    width: 100%;
+    height: 46px;
+
+    margin-top: 10px;
+
+    border: none;
+    border-radius: 6px;
+
+    background: #2563eb;
+    color: #ffffff;
+
+    font-size: 14px;
+    font-weight: 600;
+
+    transition: background 0.2s;
+}
+
+/* ボタンホバー */
+.login-button:hover {
+    background: #1d4ed8;
+}
+
+/* フッター */
+.login-footer {
+    padding: 15px;
+
+    border-top: 1px solid #edf0f3;
+
+    text-align: center;
+}
+
+.login-footer p {
+    margin-bottom: 0;
+
+    color: #999999;
+    font-size: 11px;
+}
+
+/* スマートフォン対応 */
+@media (max-width: 480px) {
+
+    .login-container {
+        padding: 15px;
+    }
+
+    .login-header {
+        padding: 28px 20px 20px;
+    }
+
+    .login-header h1 {
+        font-size: 18px;
+    }
+
+    .login-content {
+        padding: 25px 20px;
+    }
+
+}

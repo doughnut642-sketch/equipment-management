@@ -8,6 +8,8 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
+import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
+import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
 import org.springframework.web.servlet.view.InternalResourceViewResolver;
 
 @Configuration
@@ -17,7 +19,14 @@ import org.springframework.web.servlet.view.InternalResourceViewResolver;
 		"com.example.app.service",
 		"com.example.app.repository"
 })
-public class WebMvcConfig {
+public class WebMvcConfig extends WebMvcConfigurerAdapter {
+
+	@Override
+	public void addResourceHandlers(ResourceHandlerRegistry registry) {
+
+		registry.addResourceHandler("/resources/**")
+				.addResourceLocations("/resources/");
+	}
 
 	/**
 	 * SQLiteのデータソースを設定する
@@ -59,4 +68,5 @@ public class WebMvcConfig {
 
 		return resolver;
 	}
+
 }
