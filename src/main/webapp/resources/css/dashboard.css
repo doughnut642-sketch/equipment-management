@@ -1,0 +1,351 @@
+
+/* =====================================
+   ヘッダー
+===================================== */
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    padding: 18px 30px;
+
+    background: #ffffff;
+    border-bottom: 1px solid #e5e7eb;
+}
+
+.header h1 {
+    margin: 0;
+
+    font-size: 21px;
+    font-weight: 600;
+}
+
+/* ログインユーザー情報 */
+.user-info {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+
+    font-size: 13px;
+    color: #555555;
+}
+
+/* 権限表示 */
+.role {
+    padding: 4px 10px;
+
+    background: #e8eef8;
+    color: #315b91;
+
+    border-radius: 12px;
+}
+
+/* ログアウトフォーム */
+.logout-form {
+    margin: 0;
+}
+
+/* ログアウトボタン */
+.logout-button {
+    padding: 7px 14px;
+
+    border: 1px solid #d1d5db;
+    border-radius: 6px;
+
+    background: #ffffff;
+    color: #555555;
+
+    font-size: 13px;
+
+    cursor: pointer;
+
+    transition: background 0.2s, color 0.2s;
+}
+
+.logout-button:hover {
+    background: #f1f5f9;
+    color: #1e293b;
+}
+
+
+/* =====================================
+   メインコンテンツ
+===================================== */
+
+.container {
+    max-width: 1200px;
+
+    margin: 30px auto;
+    padding: 0 24px;
+}
+
+/* ページタイトル */
+.page-title {
+    margin-bottom: 22px;
+}
+
+.page-title h2 {
+    margin: 0 0 6px;
+
+    font-size: 24px;
+}
+
+.page-title p {
+    margin: 0;
+
+    color: #777777;
+    font-size: 13px;
+}
+
+
+/* =====================================
+   装置稼働状況の集計カード
+===================================== */
+
+.summary-grid {
+    display: grid;
+
+    grid-template-columns: repeat(5, 1fr);
+
+    gap: 16px;
+    margin-bottom: 30px;
+}
+
+/* 集計カード */
+.summary-card {
+    min-height: 115px;
+    padding: 20px;
+
+    background: #ffffff;
+
+    border: 1px solid #e5e7eb;
+    border-radius: 10px;
+}
+
+/* 集計項目名 */
+.summary-label {
+    margin-bottom: 12px;
+
+    color: #777777;
+    font-size: 13px;
+}
+
+/* 集計値 */
+.summary-value {
+    font-size: 30px;
+    font-weight: 700;
+}
+
+/* 装置総数 */
+.total {
+    color: #334155;
+}
+
+/* 稼働中 */
+.running {
+    color: #16a34a;
+}
+
+/* 待機中 */
+.standby {
+    color: #2563eb;
+}
+
+/* 停止中 */
+.stopped {
+    color: #64748b;
+}
+
+/* 異常 */
+.error {
+    color: #dc2626;
+}
+
+
+/* =====================================
+   装置一覧エリア
+===================================== */
+
+.section {
+    margin-bottom: 24px;
+
+    background: #ffffff;
+
+    border: 1px solid #e5e7eb;
+    border-radius: 10px;
+
+    overflow: hidden;
+}
+
+/* セクション見出し */
+.section-header {
+    padding: 18px 20px;
+
+    border-bottom: 1px solid #e5e7eb;
+}
+
+.section-header h3 {
+    margin: 0;
+
+    font-size: 17px;
+}
+
+
+/* =====================================
+   装置一覧テーブル
+===================================== */
+
+.table-wrapper {
+    overflow-x: auto;
+}
+
+table {
+    width: 100%;
+    min-width: 650px;
+
+    border-collapse: collapse;
+}
+
+th,
+td {
+    padding: 14px 18px;
+
+    text-align: left;
+
+    border-bottom: 1px solid #edf0f3;
+
+    font-size: 13px;
+}
+
+/* テーブル見出し */
+th {
+    background: #f8fafc;
+
+    color: #666666;
+    font-weight: 600;
+}
+
+/* マウスオーバー */
+tbody tr:hover {
+    background: #f8fafc;
+}
+
+/* 最終行の下線を削除 */
+tbody tr:last-child td {
+    border-bottom: none;
+}
+
+
+/* =====================================
+   ステータス表示
+===================================== */
+
+.status {
+    display: inline-block;
+
+    padding: 5px 10px;
+
+    border-radius: 12px;
+
+    font-size: 12px;
+    font-weight: 600;
+}
+
+/* 稼働中 */
+.status-running {
+    color: #15803d;
+    background: #dcfce7;
+}
+
+/* 待機中 */
+.status-standby {
+    color: #1d4ed8;
+    background: #dbeafe;
+}
+
+/* 停止中 */
+.status-stopped {
+    color: #475569;
+    background: #e2e8f0;
+}
+
+/* 異常 */
+.status-error {
+    color: #b91c1c;
+    background: #fee2e2;
+}
+
+/* データ未登録 */
+.empty-message {
+    padding: 35px;
+
+    text-align: center;
+    color: #888888;
+}
+
+
+/* =====================================
+   ログイン情報
+===================================== */
+
+.login-info {
+    padding: 18px 20px;
+
+    background: #ffffff;
+
+    border: 1px solid #e5e7eb;
+    border-radius: 10px;
+
+    font-size: 13px;
+    color: #666666;
+}
+
+.login-info p {
+    margin: 5px 0;
+}
+
+
+/* =====================================
+   レスポンシブ対応
+===================================== */
+
+/* タブレット */
+@media (max-width: 900px) {
+
+    .summary-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+}
+
+/* スマートフォン */
+@media (max-width: 600px) {
+
+    .header {
+        padding: 15px;
+
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .container {
+        margin: 20px auto;
+        padding: 0 14px;
+    }
+
+    .summary-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+    }
+
+    .summary-card {
+        padding: 15px;
+    }
+
+    .summary-value {
+        font-size: 25px;
+    }
+
+}
