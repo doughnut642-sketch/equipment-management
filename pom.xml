@@ -50,6 +50,13 @@
 			<version>1.2</version>
 		</dependency>
 
+		<!-- BCrypt：パスワードのハッシュ照合 -->
+		<dependency>
+			<groupId>org.mindrot</groupId>
+			<artifactId>jbcrypt</artifactId>
+			<version>0.4</version>
+		</dependency>
+
 		<dependency>
 			<groupId>junit</groupId>
 			<artifactId>junit</artifactId>
