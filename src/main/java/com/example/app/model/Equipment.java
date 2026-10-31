@@ -17,6 +17,9 @@ public class Equipment {
     /** 設置エリア */
     private String area;
 
+    /** 設置場所 */
+    private String location;
+
     /** 装置ステータス */
     private String status;
 
@@ -87,6 +90,17 @@ public class Equipment {
 
     public void setArea(String area) {
         this.area = area;
+    }
+
+
+    // location
+
+    public String getLocation() {
+        return location;
+    }
+
+    public void setLocation(String location) {
+        this.location = location;
     }
 
 
@@ -165,4 +179,5 @@ public class Equipment {
     public void setUpdatedAt(String updatedAt) {
         this.updatedAt = updatedAt;
     }
+
 }
