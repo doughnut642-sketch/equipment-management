@@ -1,60 +1,122 @@
+
 package com.example.app.controller;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import com.example.app.service.EquipmentService;
+
 /**
- * ダッシュボード画面の表示を制御するController
+ * ダッシュボード画面コントローラー
+ *
+ * ログインユーザー情報と装置情報を取得し、
+ * Dashboard.jspに渡す。
  */
 @Controller
 public class DashboardController {
 
+    // 装置情報サービス
+    private final EquipmentService equipmentService;
+
     /**
-     * ダッシュボード画面を表示する
+     * コンストラクタ
+     *
+     * SpringのDIによってEquipmentServiceを受け取る。
      */
-    @RequestMapping(
-            value = "/dashboard",
-            method = RequestMethod.GET
-    )
+    @Autowired
+    public DashboardController(EquipmentService equipmentService) {
+        this.equipmentService = equipmentService;
+    }
+
+    /**
+     * ダッシュボード画面表示
+     *
+     * @param request HTTPリクエスト
+     * @param model 画面に渡すデータ
+     * @return Dashboard.jsp
+     */
+    @RequestMapping(value = "/dashboard", method = RequestMethod.GET)
     public String showDashboard(
             HttpServletRequest request,
             Model model) {
 
-        // 現在のセッションを取得する
+        // ログインセッションを取得
         HttpSession session = request.getSession(false);
 
         // セッションが存在しない場合はログイン画面へ戻す
-        if (session == null) {
+        if (session == null
+                || session.getAttribute("loginUserId") == null) {
+
             return "redirect:/login";
         }
 
-        // ログインユーザーIDを取得する
+        // =====================================
+        // ログインユーザー情報
+        // =====================================
+
         String loginUserId =
                 (String) session.getAttribute("loginUserId");
 
-        // ログイン情報が存在しない場合はログイン画面へ戻す
-        if (loginUserId == null) {
-            return "redirect:/login";
-        }
-
-        // セッションからログインユーザー情報を取得する
         String displayName =
                 (String) session.getAttribute("displayName");
 
         String role =
                 (String) session.getAttribute("role");
 
-        // JSPに表示する情報を渡す
         model.addAttribute("loginUserId", loginUserId);
         model.addAttribute("displayName", displayName);
         model.addAttribute("role", role);
 
-        // ダッシュボード画面を表示する
+        // =====================================
+        // 装置情報の集計結果
+        // =====================================
+
+        // 装置総数
+        model.addAttribute(
+                "totalCount",
+                equipmentService.getTotalCount()
+        );
+
+        // 稼働中の装置数
+        model.addAttribute(
+                "runningCount",
+                equipmentService.getRunningCount()
+        );
+
+        // 待機中の装置数
+        model.addAttribute(
+                "standbyCount",
+                equipmentService.getStandbyCount()
+        );
+
+        // 停止中の装置数
+        model.addAttribute(
+                "stoppedCount",
+                equipmentService.getStoppedCount()
+        );
+
+        // 異常の装置数
+        model.addAttribute(
+                "errorCount",
+                equipmentService.getErrorCount()
+        );
+
+        // =====================================
+        // 最近更新された装置一覧
+        // =====================================
+
+        model.addAttribute(
+                "equipmentList",
+                equipmentService.getRecentEquipment(10)
+        );
+
+        // ダッシュボード画面を表示
         return "Dashboard";
     }
 }
