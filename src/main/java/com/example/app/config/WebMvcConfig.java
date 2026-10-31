@@ -13,53 +13,50 @@ import org.springframework.web.servlet.view.InternalResourceViewResolver;
 @Configuration
 @EnableWebMvc
 @ComponentScan(basePackages = {
-    "com.example.app.controller",
-    "com.example.app.service",
-    "com.example.app.repository"
+		"com.example.app.controller",
+		"com.example.app.service",
+		"com.example.app.repository"
 })
 public class WebMvcConfig {
 
-    /**
-     * SQLiteのデータソースを設定する
-     */
-    @Bean
-    public DataSource dataSource() {
+	/**
+	 * SQLiteのデータソースを設定する
+	 */
+	@Bean
+	public DataSource dataSource() {
 
-        DriverManagerDataSource dataSource =
-                new DriverManagerDataSource();
+		DriverManagerDataSource dataSource = new DriverManagerDataSource();
 
-        dataSource.setDriverClassName("org.sqlite.JDBC");
+		dataSource.setDriverClassName("org.sqlite.JDBC");
 
-        dataSource.setUrl(
-            "jdbc:sqlite:C:/dev/pleiades/workspace/"
-            + "equipment-management/database/"
-            + "equipment-management/equipment-management.db"
-        );
+		dataSource.setUrl(
+				"jdbc:sqlite:C:/dev/pleiades/workspace/"
+						+ "equipment-management/database/"
+						+ "equipment-management/equipment-management.db");
 
-        return dataSource;
-    }
+		return dataSource;
+	}
 
-    /**
-     * JdbcTemplateを設定する
-     */
-    @Bean
-    public JdbcTemplate jdbcTemplate(DataSource dataSource) {
+	/**
+	 * JdbcTemplateを設定する
+	 */
+	@Bean
+	public JdbcTemplate jdbcTemplate(DataSource dataSource) {
 
-        return new JdbcTemplate(dataSource);
-    }
+		return new JdbcTemplate(dataSource);
+	}
 
-    /**
-     * JSPのViewResolverを設定する
-     */
-    @Bean
-    public InternalResourceViewResolver viewResolver() {
+	/**
+	 * JSPのViewResolverを設定する
+	 */
+	@Bean
+	public InternalResourceViewResolver viewResolver() {
 
-        InternalResourceViewResolver resolver =
-                new InternalResourceViewResolver();
+		InternalResourceViewResolver resolver = new InternalResourceViewResolver();
 
-        resolver.setPrefix("/WEB-INF/views/");
-        resolver.setSuffix(".jsp");
+		resolver.setPrefix("/WEB-INF/views/");
+		resolver.setSuffix(".jsp");
 
-        return resolver;
-    }
+		return resolver;
+	}
 }
