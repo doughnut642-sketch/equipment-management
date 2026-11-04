@@ -9,20 +9,39 @@ public class WebAppInitializer
     // ルートアプリケーションの設定
     @Override
     protected Class<?>[] getRootConfigClasses() {
+
+        System.out.println("[DEBUG] WebAppInitializer: getRootConfigClasses() 開始");
+
+        System.out.println("[DEBUG] WebAppInitializer: RootConfig = null");
+
         return null;
     }
 
     // Spring MVCの設定クラス
     @Override
     protected Class<?>[] getServletConfigClasses() {
-        return new Class<?>[] {
+
+        System.out.println("[DEBUG] WebAppInitializer: getServletConfigClasses() 開始");
+
+        Class<?>[] configClasses = new Class<?>[] {
             WebMvcConfig.class
         };
+
+        System.out.println("[DEBUG] WebAppInitializer: ServletConfig = WebMvcConfig.class");
+
+        return configClasses;
     }
 
     // DispatcherServletが処理するURL
     @Override
     protected String[] getServletMappings() {
-        return new String[] { "/" };
+
+        System.out.println("[DEBUG] WebAppInitializer: getServletMappings() 開始");
+
+        String[] mappings = new String[] { "/" };
+
+        System.out.println("[DEBUG] WebAppInitializer: ServletMapping = /");
+
+        return mappings;
     }
 }
